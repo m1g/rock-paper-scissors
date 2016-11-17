@@ -146,6 +146,8 @@ button:active {
 }
 
 .dialog {
+  display: flex;
+  flex-direction: column;
   background-color: hsl(200, 33%, 90%);
   color: hsl(200, 5%, 25%);
   border: none;
@@ -153,9 +155,28 @@ button:active {
   text-align: center;
 }
 
+.dialog p {
+  margin: 0;
+  padding: 0;
+}
+
 .dialog h3 {
   font-size: 2em;
   margin: 1em;
+}
+
+.dialog div.match-score-player {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25em;
+  margin: 0 1em;
+}
+
+.dialog div.match-score-computer {
+  display: flex;
+  justify-content: space-between;;
+  font-size: 1.25em;
+  margin: 0 1em;
 }
 
 .dialog button {

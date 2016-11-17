@@ -90,6 +90,7 @@ const getComputerMove = () => {
 const gameOver = (playerDidWin) => {
   if (playerDidWin) {
     $('.dialog h3').textContent = 'You won!'
+    // $('.match-score .player-match').textcontent
   } else {
     $('.dialog h3').textContent = 'You lost!'
   }
