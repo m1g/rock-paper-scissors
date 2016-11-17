@@ -7,6 +7,77 @@ const handleButtonClick = (event) => {
   $('figure.player img').src = `/images/${player}.svg`
   $('figure.computer img').src = `/images/${computer}.svg`
 
+  // console.log('Player is', player)
+  // console.log('Computer is', computer)
+
+  // If the player is rock and the computer is scissors, the player wins
+  if (player === 'rock' && computer === 'scissors') {
+    const playerScoreText = $('.scores .player').textContent // grab text in HTML classes
+    const playerScoreNumber = parseInt(playerScoreText) // change it to a number
+    const newPlayerScore = playerScoreNumber + 1 // add point to score
+    $('.scores .player').textContent = newPlayerScore // replaces score in HTML
+
+    // console.log('You win!')
+  }
+
+  // If the player is rock and the computer is paper, the player loses
+  if (player === 'rock' && computer === 'paper') {
+    const computerScoreText = $('.scores .computer').textContent
+    const computerScoreNumber = parseInt(computerScoreText)
+    const newComputerScore = computerScoreNumber + 1
+    $('.scores .computer').textContent = newComputerScore
+
+    // console.log('You lose.')
+  }
+
+  // If the player is rock and the computer is scissors, the player wins
+  if (player === 'paper' && computer === 'rock') {
+    const playerScoreText = $('.scores .player').textContent
+    const playerScoreNumber = parseInt(playerScoreText)
+    const newPlayerScore = playerScoreNumber + 1
+    $('.scores .player').textContent = newPlayerScore
+
+    // console.log('You win!')
+  }
+
+  // If the player is rock and the computer is paper, the player loses
+  if (player === 'paper' && computer === 'scissors') {
+    const computerScoreText = $('.scores computer').textContent
+    const computerScoreNumber = parseInt(computerScoreText)
+    const newComputerScore = computerScoreNumber + 1
+    $('.scores .computer').textContent = newComputerScore
+  }
+
+  // If the player is rock and the computer is scissors, the player wins
+  if (player === 'scissors' && computer === 'paper') {
+    const playerScoreText = $('.scores .player').textContent
+    const playerScoreNumber = parseInt(playerScoreText)
+    const newPlayerScore = playerScoreNumber + 1
+    $('.scores .player').textContent = newPlayerScore
+
+    // console.log('You win!')
+  }
+
+  // If the player is rock and the computer is paper, the player loses
+  if (player === 'scissors' && computer === 'rock') {
+    const computerScoreText = $('.scores .player').textContent
+    const computerScoreNumber = parseInt(computerScoreText)
+    const newComputerScore = computerScoreNumber + 1
+    $('.scores .computer').textContent = newComputerScore
+
+    // console.log('You lose.')
+  }
+
+  if ($('.scores .computer').textContent === '2') { // selects HTML class Text
+    console.log('computer wins')
+    gameOver(false)
+  }
+
+  if ($('.scores .player').textContent === '2') {
+    console.log('player wins')
+    gameOver(true)
+  }
+
   // HINT: Check for win, lose or draw, then call `gameOver()` eventually.
 }
 
@@ -25,11 +96,17 @@ const gameOver = (playerDidWin) => {
   $('body').className = 'modal'
 }
 
+// console.log(gameOver)
+
 const resetGame = () => {
   // TODO: Probably need to do more to reset the game here...
   $('figure.player img').src = '/images/unknown.svg'
   $('figure.computer img').src = '/images/unknown.svg'
   $('body').className = ''
+
+  if (playerDidWin === true || false) {
+
+  }
 }
 
 const main = () => {
