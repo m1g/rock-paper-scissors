@@ -143,6 +143,7 @@ const boutOver = (playerWonBout) => {
     $('.dialog h3').textContent = 'You lost the Bout!'
   }
   $('body').className = 'modal'
+
   $('.bout-score-computer .computer-score').textContent = '0'
   $('.bout-score-player .player-score').textContent = '0'
 }
