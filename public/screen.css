@@ -165,14 +165,14 @@ button:active {
   margin: 1em;
 }
 
-.dialog div.match-score-player {
+.dialog div.bout-score-player {
   display: flex;
   justify-content: space-between;
   font-size: 1.25em;
   margin: 0 1em;
 }
 
-.dialog div.match-score-computer {
+.dialog div.bout-score-computer {
   display: flex;
   justify-content: space-between;;
   font-size: 1.25em;

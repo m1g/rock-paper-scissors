@@ -17,6 +17,7 @@ const handleButtonClick = (event) => {
     const newPlayerScore = playerScoreNumber + 1 // add point to score
     $('.scores .player').textContent = newPlayerScore // replaces score in HTML
     $('figure.player').className = 'player win' // adds animations but I don't know how
+    $('figure.computer').className = 'computer lose' // adds animations but I don't know how
     // console.log('You win!')
   }
 
@@ -27,6 +28,7 @@ const handleButtonClick = (event) => {
     const newComputerScore = computerScoreNumber + 1
     $('.scores .computer').textContent = newComputerScore
     $('figure.player').className = 'player lose'
+    $('figure.computer').className = 'computer win'
     // console.log('You lose.')
   }
 
@@ -37,6 +39,7 @@ const handleButtonClick = (event) => {
     const newPlayerScore = playerScoreNumber + 1
     $('.scores .player').textContent = newPlayerScore
     $('figure.player').className = 'player win'
+    $('figure.computer').className = 'computer lose'
     // console.log('You win!')
   }
 
@@ -47,6 +50,7 @@ const handleButtonClick = (event) => {
     const newComputerScore = computerScoreNumber + 1
     $('.scores .computer').textContent = newComputerScore
     $('figure.player').className = 'player lose'
+    $('figure.computer').className = 'computer win'
   }
 
   // If the player is scissors and the computer is paper, the player wins
@@ -56,6 +60,7 @@ const handleButtonClick = (event) => {
     const newPlayerScore = playerScoreNumber + 1
     $('.scores .player').textContent = newPlayerScore
     $('figure.player').className = 'player win'
+    $('figure.computer').className = 'computer lose'
     // console.log('You win!')
   }
 
@@ -66,6 +71,7 @@ const handleButtonClick = (event) => {
     const newComputerScore = computerScoreNumber + 1
     $('.scores .computer').textContent = newComputerScore
     $('figure.player').className = 'player lose'
+    $('figure.computer').className = 'computer win'
     // console.log('You lose.')
   }
 
@@ -78,20 +84,38 @@ const handleButtonClick = (event) => {
   if ($('.scores .computer').textContent === '2') { // selects HTML class Text
     // console.log('computer wins')
     // This code adds a point to the winner's match score
-    const computerMatchText = $('.match-score-computer .computer-score').textContent
-    const computerMatchNumber = parseInt(computerMatchText)
-    const newComputerMatchScore = computerMatchNumber + 1
-    $('.match-score-computer .computer-score').textContent = newComputerMatchScore
+    const computerBoutText = $('.bout-score-computer .computer-score').textContent
+    const computerBoutNumber = parseInt(computerBoutText)
+    const newComputerBoutScore = computerBoutNumber + 1
+    $('.bout-score-computer .computer-score').textContent = newComputerBoutScore
     gameOver(false)
   }
 
   if ($('.scores .player').textContent === '2') {
     // console.log('player wins')
-    const playerMatchText = $('.match-score-player .player-score').textContent
-    const playerMatchNumber = parseInt(playerMatchText)
-    const newPlayerMatchScore = playerMatchNumber + 1
-    $('.match-score-player .player-score').textContent = newPlayerMatchScore
+    const playerBoutText = $('.bout-score-player .player-score').textContent
+    const playerBoutNumber = parseInt(playerBoutText)
+    const newPlayerBoutScore = playerBoutNumber + 1
+    $('.bout-score-player .player-score').textContent = newPlayerBoutScore
     gameOver(true)
+  }
+
+  if ($('.bout-score-player .player-score').textContent === '2') {
+    // console.log('player wins bout')
+    // const playerBoutText = $('.bout-score-player .player-score').textContent
+    // const playerBoutNumber = parseInt(playerBoutText)
+    // const newPlayerBoutScore = playerBoutNumber + 1
+    // $('.bout-score-player .player-score').textContent = newPlayerBoutScore
+    boutOver(true)
+  }
+
+  if ($('.bout-score-computer .computer-score').textContent === '2') {
+    // console.log('player wins bout')
+    // const playerBoutText = $('.bout-score-player .player-score').textContent
+    // const playerBoutNumber = parseInt(playerBoutText)
+    // const newPlayerBoutScore = playerBoutNumber + 1
+    // $('.bout-score-player .player-score').textContent = newPlayerBoutScore
+    boutOver(false)
   }
 
   // HINT: Check for win, lose or draw, then call `gameOver()` eventually.
@@ -112,16 +136,30 @@ const gameOver = (playerDidWin) => {
   $('body').className = 'modal'
 }
 
+const boutOver = (playerWonBout) => {
+  if (playerWonBout) {
+    $('.dialog h3').textContent = 'You won the Bout!'
+  } else {
+    $('.dialog h3').textContent = 'You lost the Bout!'
+  }
+  $('body').className = 'modal'
+  $('.bout-score-computer .computer-score').textContent = '0'
+  $('.bout-score-player .player-score').textContent = '0'
+}
 // console.log(gameOver)
 
 const resetGame = () => {
   // TODO: Probably need to do more to reset the game here...
   $('figure.player img').src = '/images/unknown.svg'
   $('figure.computer img').src = '/images/unknown.svg'
+  $('figure.player').className = 'player'
+  $('figure.computer').className = 'computer'
   $('body').className = '.dialog button'
+
   $('.scores .player').textContent = '0'
   $('.scores .computer').textContent = '0'
-  console.log('game reset')
+
+  // console.log('game reset')
 }
 
 const main = () => {
