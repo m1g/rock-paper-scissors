@@ -69,12 +69,20 @@ const handleButtonClick = (event) => {
   }
 
   if ($('.scores .computer').textContent === '2') { // selects HTML class Text
-    console.log('computer wins')
+    // console.log('computer wins')
+    const computerMatchText = $('.match-score-computer .computer-score').textContent
+    const computerMatchNumber = parseInt(computerMatchText)
+    const newComputerMatchScore = computerMatchNumber + 1
+    $('.match-score-computer .computer-score').textContent = newComputerMatchScore
     gameOver(false)
   }
 
   if ($('.scores .player').textContent === '2') {
-    console.log('player wins')
+    // console.log('player wins')
+    const playerMatchText = $('.match-score-player .player-score').textContent
+    const playerMatchNumber = parseInt(playerMatchText)
+    const newPlayerMatchScore = playerMatchNumber + 1
+    $('.match-score-player .player-score').textContent = newPlayerMatchScore
     gameOver(true)
   }
 
@@ -90,7 +98,6 @@ const getComputerMove = () => {
 const gameOver = (playerDidWin) => {
   if (playerDidWin) {
     $('.dialog h3').textContent = 'You won!'
-    // $('.match-score .player-match').textcontent
   } else {
     $('.dialog h3').textContent = 'You lost!'
   }
