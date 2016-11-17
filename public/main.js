@@ -42,7 +42,7 @@ const handleButtonClick = (event) => {
 
   // If the player is rock and the computer is paper, the player loses
   if (player === 'paper' && computer === 'scissors') {
-    const computerScoreText = $('.scores computer').textContent
+    const computerScoreText = $('.scores .computer').textContent
     const computerScoreNumber = parseInt(computerScoreText)
     const newComputerScore = computerScoreNumber + 1
     $('.scores .computer').textContent = newComputerScore
@@ -102,11 +102,10 @@ const resetGame = () => {
   // TODO: Probably need to do more to reset the game here...
   $('figure.player img').src = '/images/unknown.svg'
   $('figure.computer img').src = '/images/unknown.svg'
-  $('body').className = ''
-
-  if (playerDidWin === true || false) {
-
-  }
+  $('body').className = '.dialog button'
+  $('.scores .player').textContent = '0'
+  $('.scores .computer').textContent = '0'
+  console.log('game reset')
 }
 
 const main = () => {
