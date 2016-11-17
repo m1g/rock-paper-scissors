@@ -16,7 +16,7 @@ const handleButtonClick = (event) => {
     const playerScoreNumber = parseInt(playerScoreText) // change it to a number
     const newPlayerScore = playerScoreNumber + 1 // add point to score
     $('.scores .player').textContent = newPlayerScore // replaces score in HTML
-
+    $('figure.player').className = 'player win' // adds animations but I don't know how
     // console.log('You win!')
   }
 
@@ -26,50 +26,58 @@ const handleButtonClick = (event) => {
     const computerScoreNumber = parseInt(computerScoreText)
     const newComputerScore = computerScoreNumber + 1
     $('.scores .computer').textContent = newComputerScore
-
+    $('figure.player').className = 'player lose'
     // console.log('You lose.')
   }
 
-  // If the player is rock and the computer is scissors, the player wins
+  // If the player is paper and the computer is rock, the player wins
   if (player === 'paper' && computer === 'rock') {
     const playerScoreText = $('.scores .player').textContent
     const playerScoreNumber = parseInt(playerScoreText)
     const newPlayerScore = playerScoreNumber + 1
     $('.scores .player').textContent = newPlayerScore
-
+    $('figure.player').className = 'player win'
     // console.log('You win!')
   }
 
-  // If the player is rock and the computer is paper, the player loses
+  // If the player is paper and the computer is scissors, the player loses
   if (player === 'paper' && computer === 'scissors') {
     const computerScoreText = $('.scores .computer').textContent
     const computerScoreNumber = parseInt(computerScoreText)
     const newComputerScore = computerScoreNumber + 1
     $('.scores .computer').textContent = newComputerScore
+    $('figure.player').className = 'player lose'
   }
 
-  // If the player is rock and the computer is scissors, the player wins
+  // If the player is scissors and the computer is paper, the player wins
   if (player === 'scissors' && computer === 'paper') {
     const playerScoreText = $('.scores .player').textContent
     const playerScoreNumber = parseInt(playerScoreText)
     const newPlayerScore = playerScoreNumber + 1
     $('.scores .player').textContent = newPlayerScore
-
+    $('figure.player').className = 'player win'
     // console.log('You win!')
   }
 
-  // If the player is rock and the computer is paper, the player loses
+  // If the player is scissors and the computer is rock, the player loses
   if (player === 'scissors' && computer === 'rock') {
     const computerScoreText = $('.scores .player').textContent
     const computerScoreNumber = parseInt(computerScoreText)
     const newComputerScore = computerScoreNumber + 1
     $('.scores .computer').textContent = newComputerScore
-
+    $('figure.player').className = 'player lose'
     // console.log('You lose.')
+  }
+
+  if (player === 'scissors' && computer === 'scissors' || player === 'paper' && computer === 'paper' || player === 'rock' && computer === 'rock') {
+    $('figure.player').className = 'player draw'
+    $('figure.computer').className = 'computer draw'
+    // console.log('Draw.')
   }
 
   if ($('.scores .computer').textContent === '2') { // selects HTML class Text
     // console.log('computer wins')
+    // This code adds a point to the winner's match score
     const computerMatchText = $('.match-score-computer .computer-score').textContent
     const computerMatchNumber = parseInt(computerMatchText)
     const newComputerMatchScore = computerMatchNumber + 1
