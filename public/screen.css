@@ -31,10 +31,10 @@ figure {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: calc((33vw + 33vh) / 2);
-  height: calc((33vw + 33vh) / 2);
-  max-width: 33vw;
-  max-height: 33vw;
+  width: calc((28vw + 28vh) / 2);
+  height: calc((28vw + 28vh) / 2);
+  max-width: 28vw;
+  max-height: 28vw;
   padding-bottom: 10px;
   background-color: hsl(200, 33%, 85%);
   border-radius: 5px;
@@ -65,6 +65,26 @@ figure.win img {
 figure.draw img {
   animation: 1s ease 1 alternate draw;
   filter: drop-shadow(0 0 5px hsl(0, 0%, 50%));
+}
+
+main header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0.5em 0;
+}
+
+h1 {
+  padding: 0 0.5em;
+  background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/lined_paper.png');
+  border-radius: 5px;
+}
+
+.game-info {
+  margin: 0;
+  padding-top: 2.25em;
+  font-size: 1.25em;
 }
 
 .scores {
@@ -174,7 +194,7 @@ button:active {
 
 .dialog div.bout-score-computer {
   display: flex;
-  justify-content: space-between;;
+  justify-content: space-between;
   font-size: 1.25em;
   margin: 0 1em;
 }
