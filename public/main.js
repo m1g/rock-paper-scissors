@@ -101,20 +101,10 @@ const handleButtonClick = (event) => {
   }
 
   if ($('.bout-score-player .player-score').textContent === '2') {
-    // console.log('player wins bout')
-    // const playerBoutText = $('.bout-score-player .player-score').textContent
-    // const playerBoutNumber = parseInt(playerBoutText)
-    // const newPlayerBoutScore = playerBoutNumber + 1
-    // $('.bout-score-player .player-score').textContent = newPlayerBoutScore
     boutOver(true)
   }
 
   if ($('.bout-score-computer .computer-score').textContent === '2') {
-    // console.log('player wins bout')
-    // const playerBoutText = $('.bout-score-player .player-score').textContent
-    // const playerBoutNumber = parseInt(playerBoutText)
-    // const newPlayerBoutScore = playerBoutNumber + 1
-    // $('.bout-score-player .player-score').textContent = newPlayerBoutScore
     boutOver(false)
   }
 
